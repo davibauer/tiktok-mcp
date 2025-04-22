@@ -2,8 +2,14 @@
 startCommand:
 type: stdio
 configSchema:
-  # JSON Schema defining the configuration options for the MCP.
-  {}
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - tikneuronMcpApiKey
+    properties:
+      tikneuronMcpApiKey:
+        type: string
+        description: Tikneuron MCP API key for accessing the Tikneuron MCP API.
 commandFunction:
   # A function that produces the CLI command to start the MCP on stdio.
   |-
@@ -13,6 +19,8 @@ commandFunction:
       "dist/index.js"
     ],
     "env": {
-      ...
+      "TIKNEURON_MCP_API_KEY": config.tikneuronMcpApiKey
     }
   })
+exampleConfig:
+  tikneuronMcpApiKey: YOUR_TIKNEURON_MCP_API_KEY_HERE
