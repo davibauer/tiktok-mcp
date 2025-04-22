@@ -15,7 +15,7 @@ startCommand:
     |-
     (config) => ({
       command: 'node',
-      args: ['dist/index.js'],
+      args: ['build/index.js'],
       env: {
         TIKNEURON_MCP_API_KEY: config.tikneuronMcpApiKey
       }
