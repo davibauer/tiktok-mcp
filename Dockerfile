@@ -17,10 +17,10 @@ COPY . .
 RUN npm run build
 
 # Ensure the main file is executable (if not already set)
-RUN chmod +x dist/index.js
+RUN chmod +x build/index.js
 
 # Set environment variables for Docker (actual values should be provided at runtime)
 ENV TIKNEURON_MCP_API_KEY=""
 
 # Command to run the MCP server
-CMD ["node", "dist/index.js"]
+CMD ["node", "build/index.js"]
